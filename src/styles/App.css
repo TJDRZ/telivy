@@ -1,0 +1,50 @@
+/* ul */
+.Students {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* li */
+.student {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding : 1rem;
+    border-bottom: solid #ddd 1px;
+}
+
+/* pic */
+.student-pic {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    width: 10rem;
+    height: 10rem;
+    border: solid #ddd 1px;
+    border-radius: 50%;
+}
+
+.student-pic > img {
+    flex: 1 0 100%;
+}
+
+/* text */
+.student-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.student-info > h2 {
+    line-height: 4.5rem;
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.student-info > p {
+    position: relative;
+    left: 2rem;
+    line-height: 1.5rem;
+}
