@@ -4,7 +4,12 @@ function Filter(props) {
   };
 
   return (
-    <input type="text" placeholder="Search by name" onChange={changeFilter} />
+    <input
+      type="text"
+      placeholder="Search by name"
+      onChange={changeFilter}
+      className="filter"
+    />
   );
 }
 

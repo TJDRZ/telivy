@@ -1,6 +1,19 @@
+import { useState } from "react";
+
 function Expand() {
-    // we are gonna hide that grades in students and show it when this is clicked (dont forget to turn it into a minus sign instead of plus when open)
-  return <div></div>;
+  const [showGrades, setShowGrades] = useState("hidden");
+
+  const plusMinus = () => {
+    showGrades === "hidden"
+      ? setShowGrades("visible")
+      : setShowGrades("hidden");
+  };
+
+  return (
+    <button onClick={plusMinus} className="expand">
+      {showGrades === "hidden" ? <p>+</p> : <p>-</p>}
+    </button>
+  );
 }
 
 export default Expand;

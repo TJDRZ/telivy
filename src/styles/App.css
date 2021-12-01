@@ -1,50 +1,83 @@
 /* ul */
 .Students {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 /* li */
 .student {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
-    padding : 1rem;
-    border-bottom: solid #ddd 1px;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 1rem;
+  border-bottom: solid #ddd 1px;
 }
 
 /* pic */
 .student-pic {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    overflow: hidden;
-    width: 10rem;
-    height: 10rem;
-    border: solid #ddd 1px;
-    border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  width: 10rem;
+  height: 10rem;
+  border: solid #ddd 1px;
+  border-radius: 50%;
 }
 
 .student-pic > img {
-    flex: 1 0 100%;
+  flex: 1 0 100%;
 }
 
 /* text */
 .student-info {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .student-info > h2 {
-    line-height: 4.5rem;
-    font-size: 3rem;
-    font-weight: 700;
-    text-transform: uppercase;
+  line-height: 4.5rem;
+  font-size: 3rem;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .student-info > p {
-    position: relative;
-    left: 2rem;
-    line-height: 1.5rem;
+  position: relative;
+  left: 2rem;
+  line-height: 1.5rem;
+}
+
+/* grades */
+.grades {
+  position: relative;
+  top: 1rem;
+  left: 2rem;
+}
+
+.grade {
+  display: flex;
+  gap: 1rem;
+}
+
+/* filter input */
+.filter {
+  width: 100%;
+  padding: 0.5rem;
+  font-family: inherit;
+  font-size: 1.5rem;
+  border: none;
+  border-bottom: solid #ddd 1px;
+  outline: none;
+}
+
+/* expand button */
+.expand {
+    font-family: inherit;
+    font-size: 6rem;
+    font-weight: 400;
+    color: #bbb;
+    background-color: transparent;
+    border: none;
 }

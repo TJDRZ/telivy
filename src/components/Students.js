@@ -1,4 +1,5 @@
 // import uniqid from "unqid";
+import Expand from "./Expand";
 
 function Students(props) {
   return (
@@ -15,17 +16,18 @@ function Students(props) {
               <p>{student.company}</p>
               <p>{student.skill}</p>
               <p>{student.average}</p>
+              <ul className="grades">
+                {student.grades.map((grade, index) => {
+                  return (
+                    <li key={index} className="grade">
+                      <p>{`Test ${index + 1}: `}</p>
+                      <p>{`${grade}%`}</p>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
-            <ul className="grades">
-              {props.students.map((student, index) => {
-                return (
-                  <li key={index} className="grade">
-                    {`Test ${index + 1}:`}
-                    {student.grades} {/* Gotta make this a percent, blah blah */}
-                  </li>
-                )
-              })}
-            </ul>
+            <Expand />
           </li>
         );
       })}
