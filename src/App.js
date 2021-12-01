@@ -55,7 +55,7 @@ function App() {
   return (
     <main className="App">
       <Filter setFilteredText={setFilteredText} />
-      <Students students={students} filteredStudents={filteredStudents} />
+      <Students students={filteredStudents} />
     </main>
   );
 }
