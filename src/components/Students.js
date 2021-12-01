@@ -16,6 +16,16 @@ function Students(props) {
               <p>{student.skill}</p>
               <p>{student.average}</p>
             </div>
+            <ul className="grades">
+              {props.students.map((student, index) => {
+                return (
+                  <li key={index} className="grade">
+                    {`Test ${index + 1}:`}
+                    {student.grades} {/* Gotta make this a percent, blah blah */}
+                  </li>
+                )
+              })}
+            </ul>
           </li>
         );
       })}
