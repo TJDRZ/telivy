@@ -1,12 +1,22 @@
-// import uniqid from "unqid";
+import { useState } from "react";
 import Expand from "./Expand";
+import Tag from "./Tag";
 
 function Students(props) {
+  // State array and function for adding and removing students if their grades are open
+  const [visibleGrades, setVisibleGrades] = useState([]);
+
+  const gradeVisibility = (id) => {
+    visibleGrades.includes(id)
+      ? setVisibleGrades(visibleGrades.filter((grade) => grade !== id))
+      : setVisibleGrades([...visibleGrades, id]);
+  };
+
   return (
     <ul className="Students">
-      {props.students.map((student, index) => {
+      {props.students.map((student) => {
         return (
-          <li key={index} className="student">
+          <li key={student.id} className="student">
             <div className="student-pic">
               <img src={student.pic} alt="" />
             </div>
@@ -16,18 +26,33 @@ function Students(props) {
               <p>{student.company}</p>
               <p>{student.skill}</p>
               <p>{student.average}</p>
-              <ul className="grades">
+              <ul
+                className={`grades ${
+                  visibleGrades.includes(student.id) ? "visible" : "hidden"
+                }`}
+              >
                 {student.grades.map((grade, index) => {
                   return (
-                    <li key={index} className="grade">
+                    <li key={`${student.id}G${index}`} className="grade">
                       <p>{`Test ${index + 1}: `}</p>
                       <p>{`${grade}%`}</p>
                     </li>
                   );
                 })}
               </ul>
+              <ul className="tags">
+                {student.tags.map((tag, index) => {
+                  return (
+                    <li key={`${student.id}T${index}`} className="grade">
+                      <p>{tag}</p>
+                    </li>
+                  );
+                })}
+              </ul>
+              <Tag student={student} />
             </div>
-            <Expand />
+            {/* Send id and func to add/rm from state arr onClick */}
+            <Expand id={student.id} gradeVisibility={gradeVisibility} />
           </li>
         );
       })}

@@ -1,17 +1,17 @@
 import { useState } from "react";
 
-function Expand() {
-  const [showGrades, setShowGrades] = useState("hidden");
+function Expand(props) {
+  const { id, gradeVisibility } = props;
+  const [isOpen, setIsOpen] = useState(false);
 
-  const plusMinus = () => {
-    showGrades === "hidden"
-      ? setShowGrades("visible")
-      : setShowGrades("hidden");
+  const openClose = () => {
+    isOpen === false ? setIsOpen(true) : setIsOpen(false);
+    gradeVisibility(id);
   };
 
   return (
-    <button onClick={plusMinus} className="expand">
-      {showGrades === "hidden" ? <p>+</p> : <p>-</p>}
+    <button className="Expand" onClick={openClose}>
+      {isOpen === false ? <p>+</p> : <p>-</p>}
     </button>
   );
 }

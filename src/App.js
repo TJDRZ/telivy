@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Students from "./components/Students";
 import Filter from "./components/Filter";
 import axios from "axios";
+import uniqid from "uniqid";
 
 function App() {
   const [students, setStudents] = useState([]);
@@ -14,13 +15,15 @@ function App() {
     // Grab only data we need, put into obj, add to students state array
     const createStudent = (student) => {
       const studentObj = {
+        id: uniqid(),
         pic: `${student.pic}`,
         name: `${student.firstName} ${student.lastName}`,
         email: `Email: ${student.email}`,
         company: `Company: ${student.company}`,
         skill: `Skill: ${student.skill}`,
         average: `Average: ${getAvg(student.grades)}%`,
-        grades: student.grades
+        grades: student.grades,
+        tags: []
       };
       setStudents((students) => [...students, studentObj]);
     };

@@ -8,6 +8,7 @@
 /* li */
 .student {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   gap: 3rem;
   padding: 1rem;
@@ -16,6 +17,7 @@
 
 /* pic */
 .student-pic {
+  align-self: flex-start;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -32,6 +34,7 @@
 
 /* text */
 .student-info {
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
@@ -54,6 +57,7 @@
   position: relative;
   top: 1rem;
   left: 2rem;
+  margin-bottom: 1rem;
 }
 
 .grade {
@@ -61,8 +65,17 @@
   gap: 1rem;
 }
 
+/* grades dynamic visibility */
+.visible {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
 /* filter input */
-.filter {
+.Filter {
   width: 100%;
   padding: 0.5rem;
   font-family: inherit;
@@ -73,11 +86,13 @@
 }
 
 /* expand button */
-.expand {
-    font-family: inherit;
-    font-size: 6rem;
-    font-weight: 400;
-    color: #bbb;
-    background-color: transparent;
-    border: none;
+.Expand {
+  align-self: flex-start;
+  font-family: inherit;
+  font-size: 6rem;
+  font-weight: 400;
+  color: #bbb;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }

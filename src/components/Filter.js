@@ -1,14 +1,12 @@
 function Filter(props) {
-  const changeFilter = (e) => {
-    props.setFilteredText(e.target.value);
-  };
+  const changeFilter = (e) => props.setFilteredText(e.target.value);
 
   return (
     <input
+      className="Filter"
       type="text"
       placeholder="Search by name"
       onChange={changeFilter}
-      className="filter"
     />
   );
 }

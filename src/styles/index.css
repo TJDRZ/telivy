@@ -4,3 +4,28 @@ body {
   padding: 1rem;
   font-family: 'Raleway', sans-serif;
 }
+
+/* Site wide (all uses rem) simple responsiveness */
+@media (max-width: 620px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 540px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 465px) {
+  :root {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 390px) {
+  :root {
+    font-size: 8px;
+  }
+}
