@@ -7,7 +7,8 @@ import uniqid from "uniqid";
 
 function App() {
   const [students, setStudents] = useState([]);
-  const [filteredText, setFilteredText] = useState("");
+  const [filteredName, setFilteredName] = useState("");
+  const [filteredTag, setFilteredTag] = useState("");
   const [filteredStudents, setFilteredStudents] = useState([]);
 
   // On mount, fetch api and then use create students
@@ -23,7 +24,7 @@ function App() {
         skill: `Skill: ${student.skill}`,
         average: `Average: ${getAvg(student.grades)}%`,
         grades: student.grades,
-        tags: []
+        tags: [],
       };
       setStudents((students) => [...students, studentObj]);
     };
@@ -49,15 +50,20 @@ function App() {
   // Filter (case insensitive)
   useEffect(() => {
     setFilteredStudents(
-      students.filter((student) =>
-        student.name.toLowerCase().includes(filteredText.toLowerCase())
-      )
+      students.filter((student) => {
+        return (
+          student.name.toLowerCase().includes(filteredName.toLowerCase()) &&
+          student.tags.includes(filteredTag)
+          // 2 issues: 1) tag filters probably assuming a tag at all, so need an if tag exists type thing and 2) look at comment in Tag.js
+        );
+      })
     );
-  }, [students, filteredText]);
+  }, [students, filteredName, filteredTag]);
 
   return (
     <main className="App">
-      <Filter setFilteredText={setFilteredText} />
+      <Filter setFilteredText={setFilteredName} placeholder={"name"} />
+      <Filter setFilteredText={setFilteredTag} placeholder={"tag"} />
       <Students students={filteredStudents} />
     </main>
   );
