@@ -1,13 +1,20 @@
 import { useState } from "react";
 
 function Tag(props) {
+  const { student, students, addTags } = props;
   const [tag, setTag] = useState("");
 
   const changeTag = (e) => setTag(e.target.value);
 
   const addTag = (e) => {
     if (e.keyCode === 13 && tag !== "") {
-      props.student.tags.push(tag); // not using setState so not triggering rerender, but this is the nice track for the filtering of tags
+      // keyCode 13 = "Enter"
+      students.forEach((person) => {
+        if (person.id === student.id) {
+          person.tags.push(tag);
+        }
+      });
+      addTags([...students]);
       setTag("");
     }
   };

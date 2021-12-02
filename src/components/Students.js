@@ -49,7 +49,7 @@ function Students(props) {
                   );
                 })}
               </ul>
-              <Tag student={student} />
+              <Tag student={student} students={props.students} addTags={props.addTags} />
             </div>
             {/* Send id and func to add/rm from state arr onClick */}
             <Expand id={student.id} gradeVisibility={gradeVisibility} />

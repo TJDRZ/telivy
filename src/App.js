@@ -1,15 +1,15 @@
 import "./styles/App.css";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import Students from "./components/Students";
 import Filter from "./components/Filter";
 import axios from "axios";
 import uniqid from "uniqid";
 
 function App() {
-  const [students, setStudents] = useState([]);
+  const [students, setStudents] = useState([]); // Holds originals
   const [filteredName, setFilteredName] = useState("");
   const [filteredTag, setFilteredTag] = useState("");
-  const [filteredStudents, setFilteredStudents] = useState([]);
+  const [filteredStudents, setFilteredStudents] = useState([]); // What we use
 
   // On mount, fetch api and then use create students
   useEffect(() => {
@@ -77,7 +77,7 @@ function App() {
     <main className="App">
       <Filter setFilteredText={setFilteredName} placeholder={"name"} />
       <Filter setFilteredText={setFilteredTag} placeholder={"tag"} />
-      <Students students={filteredStudents} />
+      <Students students={filteredStudents} addTags={setFilteredStudents} />
     </main>
   );
 }
