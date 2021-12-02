@@ -106,7 +106,11 @@
   left: 2rem;
   width: fit-content;
   font-size: 1rem;
-  border-bottom: solid #000 1px;
+  border-bottom: solid #ddd 2px;
+}
+
+.Tag:focus {
+  border-bottom: solid #000 2px;
 }
 
 /* tags */
