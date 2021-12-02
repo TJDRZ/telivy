@@ -40,11 +40,11 @@ function Students(props) {
                   );
                 })}
               </ul>
-              <ul className="tags">
+              <ul className="tags-ul">
                 {student.tags.map((tag, index) => {
                   return (
-                    <li key={`${student.id}T${index}`} className="grade">
-                      <p>{tag}</p>
+                    <li key={`${student.id}T${index}`} className="tag-li">
+                      <div>{tag}</div>
                     </li>
                   );
                 })}
