@@ -47,17 +47,30 @@ function App() {
       .catch((error) => console.log(error));
   }, []);
 
-  // Filter (case insensitive)
+  // Filters (case insensitive)
   useEffect(() => {
-    setFilteredStudents(
-      students.filter((student) => {
-        return (
-          student.name.toLowerCase().includes(filteredName.toLowerCase()) &&
-          student.tags.includes(filteredTag)
-          // 2 issues: 1) tag filters probably assuming a tag at all, so need an if tag exists type thing and 2) look at comment in Tag.js
-        );
-      })
-    );
+    if (filteredName !== "" && filteredTag !== "") {
+      setFilteredStudents(
+        students.filter((student) => {
+          return (
+            student.name.toLowerCase().includes(filteredName.toLowerCase()) &&
+            student.tags.includes(filteredTag)
+          );
+        })
+      );
+    } else if (filteredName !== "") {
+      setFilteredStudents(
+        students.filter((student) =>
+          student.name.toLowerCase().includes(filteredName.toLowerCase())
+        )
+      );
+    } else if (filteredTag !== "") {
+      setFilteredStudents(
+        students.filter((student) => student.tags.includes(filteredTag))
+      );
+    } else {
+      setFilteredStudents(students);
+    }
   }, [students, filteredName, filteredTag]);
 
   return (
