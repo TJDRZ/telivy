@@ -1,5 +1,5 @@
 import "./styles/App.css";
-import { useState, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
 import Students from "./components/Students";
 import Filter from "./components/Filter";
 import axios from "axios";
