@@ -54,7 +54,7 @@ function App() {
         students.filter((student) => {
           return (
             student.name.toLowerCase().includes(filteredName.toLowerCase()) &&
-            student.tags.includes(filteredTag)
+            student.tags.find((tag) => tag.includes(filteredTag))
           );
         })
       );
@@ -66,7 +66,9 @@ function App() {
       );
     } else if (filteredTag !== "") {
       setFilteredStudents(
-        students.filter((student) => student.tags.includes(filteredTag))
+        students.filter((student) =>
+          student.tags.find((tag) => tag.includes(filteredTag))
+        )
       );
     } else {
       setFilteredStudents(students);
